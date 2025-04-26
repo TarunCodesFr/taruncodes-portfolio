@@ -1,6 +1,5 @@
-
-import tarunImg from '../assets/taruncodes.jpg';
 import React, { useState, useEffect } from 'react';
+import tarunImg from '../assets/taruncodes.jpg';
 
 // Custom typewriter effect without external library
 function TypewriterEffect({ words, loop }) {
@@ -52,12 +51,12 @@ export default function HeroSection() {
           <div className="absolute top-0 right-0 w-32 h-1 bg-blue-500 rounded-tr-full rounded-tl-full transform translate-y-0"></div>
 
           <div className="flex flex-col md:flex-col lg:flex-row-reverse items-center lg:justify-between gap-10 lg:gap-16">
-            {/* Image placeholder with avatar */}
+            {/* Image with your imported image */}
             <div className="relative">
               <div className="absolute inset-0 bg-blue-500 opacity-20 blur-xl rounded-full"></div>
-              <div className="relative w-36 h-36 md:w-44 md:h-44 lg:w-60 lg:h-60 rounded-full border-4 border-blue-500 shadow-lg bg-gray-700 flex items-center justify-center overflow-hidden">
-                {/* Replace with a placeholder avatar */}
-                <img src="/api/placeholder/240/240" alt="Developer Avatar" className="w-full h-full object-cover" />
+              <div className="relative w-36 h-36 md:w-44 md:h-44 lg:w-60 lg:h-60 rounded-full border-4 border-blue-500 shadow-lg overflow-hidden">
+                {/* Using your imported image */}
+                <img src={tarunImg} alt="TarunCodes Logo" className="w-full h-full object-cover" />
               </div>
             </div>
 
