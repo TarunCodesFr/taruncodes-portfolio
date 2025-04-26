@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from 'emailjs-com'; // Correct EmailJS import
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -14,42 +15,31 @@ export default function ContactSection() {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    // Simulate form submission (replace with actual EmailJS implementation)
-    setTimeout(() => {
-      setSubmitStatus('success');
-      setFormData({ name: "", email: "", message: "" });
-      setIsSubmitting(false);
-    }, 1500);
-
-    // Uncomment and adjust this in your actual implementation
-    /*
-    import('emailjs-com').then((emailjs) => {
-      emailjs.sendForm(
-        import.meta.env.VITE_SERVICE_ID,
-        import.meta.env.VITE_TEMPLATE_ID,
-        e.target,
-        import.meta.env.VITE_PUBLIC_KEY
-      )
-        .then(() => {
-          setSubmitStatus('success');
-          setFormData({ name: "", email: "", message: "" });
-        })
-        .catch((error) => {
-          console.error("EmailJS Error:", error);
-          setSubmitStatus('error');
-        })
-        .finally(() => {
-          setIsSubmitting(false);
-        });
-    });
-    */
+    emailjs.send(
+      import.meta.env.VITE_SERVICE_ID,
+      import.meta.env.VITE_TEMPLATE_ID,
+      {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+      },
+      import.meta.env.VITE_PUBLIC_KEY
+    )
+      .then(() => {
+        setSubmitStatus('success');
+        setFormData({ name: "", email: "", message: "" });
+      })
+      .catch((error) => {
+        console.error("EmailJS Error:", error);
+        setSubmitStatus('error');
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
   };
 
   return (
-    <section
-      id="contact"
-      className="bg-gradient-to-b from-gray-800 to-gray-900 py-20 px-4"
-    >
+    <section id="contact" className="bg-gradient-to-b from-gray-800 to-gray-900 py-20 px-4">
       <div className="max-w-4xl mx-auto">
         {/* Section header */}
         <div className="mb-12 text-center">
@@ -110,9 +100,7 @@ export default function ContactSection() {
                   value={formData.name}
                   required
                   className="bg-gray-900 border border-gray-700 focus:border-blue-500 text-white w-full p-3 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-                  onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                  }
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 />
               </div>
               <div className="relative">
@@ -127,9 +115,7 @@ export default function ContactSection() {
                   value={formData.email}
                   required
                   className="bg-gray-900 border border-gray-700 focus:border-blue-500 text-white w-full p-3 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                 />
               </div>
             </div>
@@ -145,9 +131,7 @@ export default function ContactSection() {
                 required
                 rows={5}
                 className="bg-gray-900 border border-gray-700 focus:border-blue-500 text-white w-full p-3 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-                onChange={(e) =>
-                  setFormData({ ...formData, message: e.target.value })
-                }
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               />
             </div>
             <button
