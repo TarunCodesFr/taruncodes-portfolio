@@ -180,7 +180,7 @@ export default function ContactSection() {
               </div>
               <h3 className="text-white font-medium">Email</h3>
               <a href="mailto:contact@example.com" className="text-gray-300 hover:text-blue-400 transition-colors">
-                contact@example.com
+                akurax4@gmail.com
               </a>
             </div>
             <div className="flex flex-col items-center text-center">
