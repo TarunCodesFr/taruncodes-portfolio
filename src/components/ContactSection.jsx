@@ -179,7 +179,7 @@ export default function ContactSection() {
                 </svg>
               </div>
               <h3 className="text-white font-medium">Email</h3>
-              <a href="mailto:contact@example.com" className="text-gray-300 hover:text-blue-400 transition-colors">
+              <a href="mailto:akurax4@gmail.com" className="text-gray-300 hover:text-blue-400 transition-colors">
                 akurax4@gmail.com
               </a>
             </div>
