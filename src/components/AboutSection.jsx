@@ -4,6 +4,7 @@ import { Laptop, Code, Database } from 'lucide-react';
 
 export default function AboutSection() {
   return (
+    
     <section className="bg-gradient-to-b from-gray-900 to-gray-800 py-20 px-4 md:px-10" id="about">
       <div className="max-w-6xl mx-auto">
         {/* Section header */}
