@@ -38,7 +38,8 @@ export default function AboutSection() {
                   <p className="text-gray-300 text-sm mb-2">Developer Portfolio</p>
                   <div className="flex gap-2 justify-center">
                     <span className="px-2 py-1 bg-blue-500 rounded-md text-xs text-white">PHP</span>
-                    <span className="px-2 py-1 bg-green-500 rounded-md text-xs text-white">Backend</span>
+                    <span className="px-2 py-1 bg-orange-500 rounded-md text-xs text-white">Backend</span>
+                    <span className="px-2 py-1 bg-gray-500 rounded-md text-xs text-white">NextJS</span>
                     <span className="px-2 py-1 bg-purple-500 rounded-md text-xs text-white">PocketMine</span>
                   </div>
                 </div>
@@ -54,7 +55,7 @@ export default function AboutSection() {
               </div>
               
               <p className="text-gray-300 text-lg leading-relaxed">
-                Hey! I'm a software engineer from <span className="text-blue-400 font-medium">India</span> specializing in <span className="text-blue-400 font-medium">PHP</span>.
+                Hey! I'm a software engineer from <span className="text-blue-400 font-medium">India</span> specializing in <span className="text-blue-400 font-medium">PHP, Javascript & React</span>.
               </p>
               
               <p className="text-gray-300 text-lg leading-relaxed">
