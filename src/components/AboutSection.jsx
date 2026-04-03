@@ -1,91 +1,86 @@
-import React from 'react';
-import { Laptop, Code, Database } from 'lucide-react';
-
+import { useCharacter } from "../context/CharacterContext";
 
 export default function AboutSection() {
+  const { say } = useCharacter();
+
+  const handleHover = (msg) => {
+    say(msg, 2500);
+  };
+
   return (
-    
-    <section className="bg-gradient-to-b from-gray-900 to-gray-800 py-20 px-4 md:px-10" id="about">
-      <div className="max-w-6xl mx-auto">
-        {/* Section header */}
-        <div className="mb-16 text-center animate-fade-in">
-          <h2 className="inline-block text-sm font-medium tracking-wider text-blue-400 uppercase mb-2">
-            Who I Am
-          </h2>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 relative">
-            About Me
-            <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-blue-500 rounded-full"></span>
-          </h1>
+    <section id="intro" className="pixel-bg" style={{ minHeight: '100vh', paddingTop: 100, paddingBottom: 80, position: 'relative', zIndex: 1 }}>
+      <div style={{ position: 'relative', zIndex: 2, maxWidth: 1100, margin: '0 auto', padding: '0 24px' }}>
+        <h2 className="section-title" style={{ marginBottom: 40, textAlign: 'center' }}>
+          [SYSTEM]: INITIALIZING BI0...
+        </h2>
+
+        <div className="bento-grid">
+          {/* Main Name/Tagline Box */}
+          <div className="bento-item bento-col-2 bento-row-2" onMouseEnter={() => handleHover("T4RUN C0DES. B4CKEND SPECI4LIST.")}>
+            <div className="bento-header">Identity</div>
+            <h3 style={{ fontFamily: 'var(--font-pixel)', fontSize: 24, color: '#fff', marginBottom: 16 }}>TARUNCODES</h3>
+            <p style={{ fontFamily: 'var(--font-mono)', fontSize: 13, color: 'var(--text-gray)', lineHeight: 1.6 }}>
+              Backend developer with a passion for building systems that work silently in the shadows. 
+              Specialized in PocketMine-MP, PHP, and modern JS ecosystems.
+            </p>
+          </div>
+
+          {/* Philosophy */}
+          <div className="bento-item bento-col-2" onMouseEnter={() => handleHover("M4KE IT W0RK → M4KE IT RIGHT.")}>
+            <div className="bento-header">Philosophy</div>
+            <p style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--orange)' }}>
+              Make it work → make it right → make it fast → make it beautiful.
+            </p>
+          </div>
+
+          {/* Passions */}
+          <div className="bento-item bento-col-1" onMouseEnter={() => handleHover("CH4SING NEW IDE4S...")}>
+            <div className="bento-header">Passions</div>
+            <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--text-white)' }}>
+              Solving hard problems and building things worth flexing.
+            </p>
+          </div>
+
+          {/* Interests */}
+          <div className="bento-item bento-col-1" onMouseEnter={() => handleHover("MINECCR4FT & TECH F0RUMS.")}>
+            <div className="bento-header">Interests</div>
+            <p style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--text-dim)' }}>
+              Minecraft servers, Tech forums, Lo-fi phonk.
+            </p>
+          </div>
+
+          {/* Quick List - Expanded */}
+          <div className="bento-item bento-col-4" style={{ display: 'flex', flexWrap: 'wrap', gap: 20 }}>
+            {[
+              { label: 'Role', value: 'Backend / Plugin Dev' },
+              { label: 'Interest Proof', value: 'Contributor at Poggit' },
+              { label: 'Weakness', value: 'Übermensch confirmed' },
+              { label: 'How I code', value: 'Music = Oxygen' },
+            ].map((item, i) => (
+              <div key={i} style={{ flex: '1 1 200px' }}>
+                <span style={{ fontFamily: 'var(--font-pixel)', fontSize: 9, color: 'var(--orange)', display: 'block', marginBottom: 4 }}>{item.label}:</span>
+                <span style={{ fontFamily: 'var(--font-mono)', fontSize: 12, color: '#fff' }}>{item.value}</span>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Content container */}
-        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
-          {/* PC/Image component replacement */}
-          <div className="w-full lg:w-1/2 h-80 md:h-96 overflow-hidden rounded-lg shadow-xl bg-gray-800 border border-gray-700 p-6 flex items-center justify-center">
-            <div className="relative w-full h-full flex flex-col items-center justify-center">
-              {/* Decorative background elements */}
-              <div className="absolute opacity-10 top-0 right-0">
-                <Code size={120} />
-              </div>
-              <div className="absolute opacity-10 bottom-0 left-0">
-                <Database size={100} />
-              </div>
-              
-              {/* Main laptop illustration */}
-              <div className="flex flex-col items-center justify-center">
-                <Laptop size={160} className="text-blue-400 mb-6" />
-                <div className="text-center">
-                  <p className="text-gray-300 text-sm mb-2">Developer Portfolio</p>
-                  <div className="flex gap-2 justify-center">
-                    <span className="px-2 py-1 bg-blue-500 rounded-md text-xs text-white">PHP</span>
-                    <span className="px-2 py-1 bg-orange-500 rounded-md text-xs text-white">Backend</span>
-                    <span className="px-2 py-1 bg-gray-500 rounded-md text-xs text-white">NextJS</span>
-                    <span className="px-2 py-1 bg-purple-500 rounded-md text-xs text-white">PocketMine</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Text content */}
-          <div className="w-full lg:w-1/2">
-            <div className="space-y-6">
-              <div className="inline-block px-3 py-1 rounded-full bg-blue-500 bg-opacity-20 text-blue-400 text-sm font-medium">
-                Software Engineer
-              </div>
-              
-              <p className="text-gray-300 text-lg leading-relaxed">
-                Hey! I'm a software engineer from <span className="text-blue-400 font-medium">India</span> specializing in <span className="text-blue-400 font-medium">PHP, Javascript & React</span>.
-              </p>
-              
-              <p className="text-gray-300 text-lg leading-relaxed">
-                As a Junior Backend Developer and <a href="https://github.com/pmmp/PocketMine-MP" className="text-blue-400 font-medium underline hover:text-blue-300 transition-colors">PocketMine-MP</a> Developer for years, I'm passionate about creating web applications and plugins that make tasks easier and more productive.
-              </p>
-              
-              <p className="text-gray-300 text-lg leading-relaxed">
-                At just <span className="text-blue-400 font-medium">16 years old</span>, I'm thriving to become a recognized self-taught developer who creates solutions for common problems in the tech industry.
-              </p>
-              
-              <div className="pt-4">
-                <a href="#contact" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors shadow-lg">
-                  Let's Connect
-                </a>
-              </div>
-            </div>
-          </div>
+        {/* Social links */}
+        <div style={{ marginTop: 48, paddingTop: 24, borderTop: '2px dashed rgba(207,73,44,0.3)', display: 'flex', flexWrap: 'wrap', gap: 24, justifyContent: 'center' }}>
+          {[
+            { label: 'GitHub', href: 'https://github.com/TarunCodesFr', icon: '⊕' },
+            { label: 'LinkedIn', href: 'https://linkedin.com', icon: 'in' },
+            { label: 'Discord', href: 'https://discordapp.com/users/847373992787705876', icon: '◈' },
+            { label: 'Email', href: 'mailto:akurax4@gmail.com', icon: '✉' },
+          ].map(({ label, href, icon }) => (
+            <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="social-link" style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <span style={{ fontSize: 14 }}>{icon}</span>
+              {label}
+            </a>
+          ))}
         </div>
       </div>
-
-      {/* Add this CSS for the fade-in animation */}
-      <style jsx>{`
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in {
-          animation: fadeIn 0.8s ease-out forwards;
-        }
-      `}</style>
+      <div className="section-glow" />
     </section>
   );
 }
