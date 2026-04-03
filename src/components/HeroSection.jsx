@@ -72,15 +72,15 @@ class TarunCodes extends PluginBase {
 
       {/* Floating Particles */}
       {particles.map((_, i) => (
-        <div 
-          key={i} 
-          className="hero-particle" 
-          style={{ 
-            top: `${Math.random() * 100}%`, 
-            left: `${Math.random() * 100}%`, 
+        <div
+          key={i}
+          className="hero-particle"
+          style={{
+            top: `${Math.random() * 100}%`,
+            left: `${Math.random() * 100}%`,
             animationDelay: `${Math.random() * 10}s`,
             animationDuration: `${5 + Math.random() * 10}s`
-          }} 
+          }}
         />
       ))}
 
@@ -101,13 +101,13 @@ class TarunCodes extends PluginBase {
           </div>
 
           <p style={{ fontFamily: 'var(--font-mono)', fontWeight: '500', fontSize: 14, color: 'var(--text-gray)', marginBottom: 32, lineHeight: 1.8, maxWidth: 520 }}>
-            Building high-performance backend systems and custom PocketMine-MP plugins with creativity and precision. 
+            Building high-performance backend systems and custom PocketMine-MP plugins with creativity and precision.
             Leveling up my craft through every line of code.
           </p>
 
           <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
             <a
-              href="https://github.com/TarunCodesFr"
+              href="./assets/taruncodes-resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-pixel btn-pixel-filled"
@@ -140,10 +140,10 @@ class TarunCodes extends PluginBase {
             </div>
 
             {[
-              { label: 'Experience', val: '3+ YEARS', icon: <Terminal size={12}/> },
-              { label: 'Projects', val: '24 ACTIVE', icon: <Github size={12}/> },
-              { label: 'Level', val: '99 MAX', icon: <Terminal size={12}/> },
-              { label: 'GitHub Stars', val: '150+', icon: <Github size={12}/> },
+              { label: 'Experience', val: '6+ YEARS', icon: <Terminal size={12} /> },
+              { label: 'Projects', val: '24 ACTIVE', icon: <Github size={12} /> },
+              { label: 'Level', val: '99 MAX', icon: <Terminal size={12} /> },
+              { label: 'GitHub Stars', val: '150+', icon: <Github size={12} /> },
             ].map((stat, i) => (
               <div key={i} className="stats-row-item" style={{ padding: '14px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <span style={{ fontSize: 11, display: 'flex', alignItems: 'center', gap: 8 }}>{stat.icon} {stat.label}</span>
