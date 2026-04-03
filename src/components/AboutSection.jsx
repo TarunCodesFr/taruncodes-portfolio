@@ -20,7 +20,7 @@ export default function AboutSection() {
             <div className="bento-header">Identity</div>
             <h3 style={{ fontFamily: 'var(--font-pixel)', fontSize: 24, color: '#fff', marginBottom: 16 }}>TARUNCODES</h3>
             <p style={{ fontFamily: 'var(--font-mono)', fontSize: 13, color: 'var(--text-gray)', lineHeight: 1.6 }}>
-              Backend developer with a passion for building systems that work silently in the shadows. 
+              Backend developer with a passion for building systems that work silently in the shadows.
               Specialized in PocketMine-MP, PHP, and modern JS ecosystems.
             </p>
           </div>
@@ -52,7 +52,7 @@ export default function AboutSection() {
           {/* Quick List - Expanded */}
           <div className="bento-item bento-col-4" style={{ display: 'flex', flexWrap: 'wrap', gap: 20 }}>
             {[
-              { label: 'Role', value: 'Backend / Plugin Dev' },
+              { label: 'Role', value: 'Backend / Performance Engineer' },
               { label: 'Interest Proof', value: 'Contributor at Poggit' },
               { label: 'Weakness', value: 'Übermensch confirmed' },
               { label: 'How I code', value: 'Music = Oxygen' },
@@ -69,7 +69,7 @@ export default function AboutSection() {
         <div style={{ marginTop: 48, paddingTop: 24, borderTop: '2px dashed rgba(207,73,44,0.3)', display: 'flex', flexWrap: 'wrap', gap: 24, justifyContent: 'center' }}>
           {[
             { label: 'GitHub', href: 'https://github.com/TarunCodesFr', icon: '⊕' },
-            { label: 'LinkedIn', href: 'https://linkedin.com', icon: 'in' },
+            { label: 'LinkedIn', href: 'https://www.linkedin.com/in/tarun-s-a756383b5/', icon: 'in' },
             { label: 'Discord', href: 'https://discordapp.com/users/847373992787705876', icon: '◈' },
             { label: 'Email', href: 'mailto:akurax4@gmail.com', icon: '✉' },
           ].map(({ label, href, icon }) => (

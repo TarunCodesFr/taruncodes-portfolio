@@ -5,6 +5,23 @@ import { useCharacter } from "../context/CharacterContext";
 const SECTIONS = ['home', 'intro', 'projects', 'skills', 'experience', 'achievements', 'contact'];
 const SECTION_LABELS = ['INTRO', 'INTRO', 'PROJECTS', 'SKILLS', 'EXP', 'ACHIEVEMENTS', 'CONTACT'];
 
+function Typewriter({ text, speed = 40 }) {
+  const [displayedText, setDisplayedText] = useState("");
+
+  useEffect(() => {
+    setDisplayedText("");
+    let i = 0;
+    const timer = setInterval(() => {
+      setDisplayedText((prev) => text.slice(0, i + 1));
+      i++;
+      if (i >= text.length) clearInterval(timer);
+    }, speed);
+    return () => clearInterval(timer);
+  }, [text, speed]);
+
+  return <span>{displayedText}<span className="pixel-cursor" style={{ height: '0.8em', width: 4 }}></span></span>;
+}
+
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState(0);
   const { message } = useCharacter();
@@ -25,7 +42,7 @@ export default function Navbar() {
 
   return (
     <nav className="navbar">
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 20px', gap: 12 }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '10px 20px', gap: 12 }}>
         {/* Left: section label + dots */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <span className="nav-section-indicator">{SECTION_LABELS[activeSection]}</span>
@@ -44,40 +61,18 @@ export default function Navbar() {
           </div>
         </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 2 }}>
-            <div style={{ fontFamily: 'var(--font-pixel)', fontSize: 7, color: 'var(--orange)', opacity: 0.8, letterSpacing: '2px' }}>
-              PORTFOLIO OS v2.0
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-              <div className="nav-chat-box" style={{ 
-                position: 'relative',
-                minWidth: 200,
-                transition: 'all 0.3s ease',
-                border: '2px solid var(--orange)',
-                background: 'rgba(207, 73, 44, 0.05)',
-                fontFamily: 'var(--font-pixel)',
-                fontSize: '12px',
-                padding: '4px 8px'
-              }}>
-                <div key={message} style={{ animation: 'fade-in 0.3s ease-out' }}>
-                  {message}
-                </div>
-                {/* Speech bubble pointer */}
-                <div style={{
-                  position: 'absolute',
-                  right: -8,
-                  top: '50%',
-                  transform: 'translateY(-50%)',
-                  width: 0,
-                  height: 0,
-                  borderTop: '6px solid transparent',
-                  borderBottom: '6px solid transparent',
-                  borderLeft: '8px solid var(--orange)',
-                }} />
-              </div>
-              <img src={tarunImg} alt="TarunCodes" className="nav-avatar" style={{ border: '2px solid var(--orange)' }} />
-            </div>
+        {/* Right: NPC UI */}
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 4 }}>
+          <div style={{ fontFamily: 'var(--font-pixel)', fontSize: 7, color: 'var(--orange)', opacity: 0.9, letterSpacing: '2px', fontWeight: 'bold' }}>
+            STATUS: ONLINE // v2.0
           </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+            <div className="nav-chat-bubble">
+              <Typewriter text={message} />
+            </div>
+            <img src={tarunImg} alt="TarunCodes" className="nav-avatar" />
+          </div>
+        </div>
       </div>
     </nav>
   );
