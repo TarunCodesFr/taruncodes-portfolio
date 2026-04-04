@@ -1,1 +1,1 @@
-- add projects component when i actually have done "public" projects.
+- add projects component when i actually have done "public" projects. - done lol
