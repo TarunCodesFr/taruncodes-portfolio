@@ -135,15 +135,15 @@ class TarunCodes extends PluginBase {
               <Terminal size={18} color="var(--orange)" />
               <div>
                 <div style={{ fontFamily: 'var(--font-pixel)', fontSize: 12, fontWeight: 'bold', color: 'var(--orange)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>SYS MONITOR</div>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--text-dim)' }}>v2.0 Stable Build</div>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--text-dim)' }}>V.2</div>
               </div>
             </div>
 
             {[
-              { label: 'Experience', val: '6+ YEARS', icon: <Terminal size={12} /> },
-              { label: 'Projects', val: '24 ACTIVE', icon: <Github size={12} /> },
-              { label: 'Level', val: '99 MAX', icon: <Terminal size={12} /> },
-              { label: 'GitHub Stars', val: '150+', icon: <Github size={12} /> },
+              { label: 'Experience', val: '4+ YEARS', icon: <Terminal size={12} /> },
+              { label: 'Projects', val: '1 Active', icon: <Github size={12} /> },
+              { label: 'Level', val: 'Something stupid lol', icon: <Terminal size={12} /> },
+              { label: 'GitHub Stars', val: '15+', icon: <Github size={12} /> },
             ].map((stat, i) => (
               <div key={i} className="stats-row-item" style={{ padding: '14px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <span style={{ fontSize: 11, display: 'flex', alignItems: 'center', gap: 8 }}>{stat.icon} {stat.label}</span>
