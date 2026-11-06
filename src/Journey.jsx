@@ -16,10 +16,6 @@ export default function Journey() {
         <header className="journey-head">
           <p className="eyebrow">the journey</p>
           <h1>How I got here</h1>
-          <p className="lede">
-            Minecraft servers, a three dollar payout, a community that died, and
-            a press photo that pointed me toward security.
-          </p>
         </header>
 
         <div className="prose">
@@ -33,7 +29,7 @@ export default function Journey() {
           </p>
 
           <section>
-            <h2>the server problem</h2>
+            {/* <h2>the server problem</h2> */}
             <p>
               So I decided to make my own Minecraft server. I had no idea how.
               The public plugins were ass, developers charged more than I could
@@ -51,7 +47,7 @@ export default function Journey() {
           </section>
 
           <section>
-            <h2>what the server taught me</h2>
+            {/* <h2>what the server taught me</h2> */}
             <p>
               At some point I had a working server with custom plugins and a
               medium-sized community that showed up every day. That project
@@ -62,7 +58,7 @@ export default function Journey() {
           </section>
 
           <section>
-            <h2>three dollars</h2>
+            {/* <h2>three dollars</h2> */}
             <p>
               Then I found freelancing and gave it a try. My first payout was
               $3. Yes, three dollars. It was tiny, but it proved that people
@@ -72,7 +68,7 @@ export default function Journey() {
           </section>
 
           <section>
-            <h2>the reset</h2>
+            {/* <h2>the reset</h2> */}
             <p>
               Then the Bedrock community died. I had to shut the server down,
               and the freelancing work went with it. I still did not want to
@@ -83,7 +79,7 @@ export default function Journey() {
           </section>
 
           <section>
-            <h2>security</h2>
+            {/* <h2>security</h2> */}
             <p>
               Last year I heard about the CBSE OSM portal being hacked by a
               teenager named{" "}
