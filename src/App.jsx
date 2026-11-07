@@ -1,12 +1,17 @@
 import RotatingAvatar from './components/RotatingAvatar'
-import Clock from './components/Clock'
+import PlatformIcon from './components/PlatformIcon'
+import Footer from './components/Footer'
 
 const links = [
-  { label: 'github', href: 'https://github.com/taruncodesfr' },
-  { label: 'x / twitter', href: 'https://x.com/TarunCodesFr' },
-  { label: 'reddit', href: 'https://www.reddit.com/user/TarunCodes/' },
-  { label: 'discord', href: 'https://discordapp.com/users/847373992787705876' },
-  { label: 'email', href: 'mailto:taruncodesfr@gmail.com' },
+  { label: 'github', href: 'https://github.com/taruncodesfr', icon: 'github' },
+  { label: 'x / twitter', href: 'https://x.com/TarunCodesFr', icon: 'x' },
+  { label: 'reddit', href: 'https://www.reddit.com/user/TarunCodes/', icon: 'reddit' },
+  {
+    label: 'discord',
+    href: 'https://discordapp.com/users/847373992787705876',
+    icon: 'discord',
+  },
+  { label: 'email', href: 'mailto:taruncodesfr@gmail.com', icon: 'gmail' },
 ]
 
 function App() {
@@ -36,6 +41,20 @@ function App() {
                 aka <strong>TarunCodes</strong>
               </p>
               <p className="role">software engineer &amp; cybersecurity researcher</p>
+              <nav className="identity-links" aria-label="Social links">
+                {links.map(({ label, href, icon }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    aria-label={label}
+                    title={label}
+                    target={href.startsWith('mailto:') ? undefined : '_blank'}
+                    rel="noreferrer"
+                  >
+                    <PlatformIcon name={icon} />
+                  </a>
+                ))}
+              </nav>
             </div>
           </div>
 
@@ -69,27 +88,23 @@ function App() {
             </p>
           </div>
 
-          <nav className="hero-links" aria-label="Social links">
-            {links.map(({ label, href }) => (
-              <a
-                key={label}
-                href={href}
-                target={href.startsWith('mailto:') ? undefined : '_blank'}
-                rel="noreferrer"
-              >
-                {label}
-              </a>
-            ))}
-          </nav>
+          <section className="writeups" aria-labelledby="writeups-title">
+            <h2 id="writeups-title">writeups</h2>
+            <ul>
+              <li>
+                <a href="/journey/">
+                  <span>How I got here: from Minecraft servers to security research</span>
+                  <span className="arrow" aria-hidden="true">
+                    →
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </section>
         </section>
       </main>
 
-      <footer className="site-foot">
-        <span className="foot-place">
-          Varanasi, India <span className="dot" aria-hidden="true" /> <Clock />
-        </span>
-        <span className="foot-credit">tarun.is-a.dev</span>
-      </footer>
+      <Footer />
     </div>
   )
 }

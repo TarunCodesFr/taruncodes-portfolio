@@ -1,4 +1,4 @@
-import Clock from "./components/Clock";
+import Footer from "./components/Footer";
 
 export default function Journey() {
   return (
@@ -113,12 +113,7 @@ export default function Journey() {
         </div>
       </main>
 
-      <footer className="site-foot">
-        <span className="foot-place">
-          Varanasi, India <span className="dot" aria-hidden="true" /> <Clock />
-        </span>
-        <span className="foot-credit">tarun.is-a.dev</span>
-      </footer>
+      <Footer />
     </div>
   );
 }

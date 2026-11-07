@@ -1,3 +1,19 @@
+@font-face {
+  font-family: "JetBrainsMono Nerd Font";
+  src: url("/fonts/JetBrainsMonoNerdFont-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrainsMono Nerd Font";
+  src: url("/fonts/JetBrainsMonoNerdFont-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --paper: #f6f4ee;
   --ink: #1a1917;
@@ -7,9 +23,17 @@
   --wash: #ebe7dc;
   --accent: #b0472a;
   --accent-soft: rgba(176, 71, 42, 0.1);
-  --serif: 'Newsreader', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
-  --sans: 'Manrope', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --serif: "Newsreader", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --mono-old:
+    "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --mono-nerd:
+    "JetBrainsMono Nerd Font", "JetBrains Mono", ui-monospace, SFMono-Regular,
+    Menlo, Consolas, monospace;
+  --mono: var(--mono-old);
+}
+
+html[data-mono="nerd"] {
+  --mono: var(--mono-nerd);
 }
 
 *,
@@ -29,11 +53,19 @@ body {
   min-height: 100vh;
   background-color: var(--paper);
   background-image:
-    radial-gradient(60rem 40rem at 82% -8%, rgba(176, 71, 42, 0.055), transparent 60%),
-    radial-gradient(50rem 32rem at -12% 8%, rgba(122, 112, 82, 0.05), transparent 55%);
+    radial-gradient(
+      60rem 40rem at 82% -8%,
+      rgba(176, 71, 42, 0.055),
+      transparent 60%
+    ),
+    radial-gradient(
+      50rem 32rem at -12% 8%,
+      rgba(122, 112, 82, 0.05),
+      transparent 55%
+    );
   background-attachment: fixed;
   color: var(--ink);
-  font-family: var(--sans);
+  font-family: var(--mono);
   font-size: 16px;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
@@ -42,13 +74,18 @@ body {
 }
 
 body::before {
-  content: '';
+  content: "";
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, var(--accent), rgba(176, 71, 42, 0.15) 45%, transparent 80%);
+  background: linear-gradient(
+    90deg,
+    var(--accent),
+    rgba(176, 71, 42, 0.15) 45%,
+    transparent 80%
+  );
   z-index: 50;
   pointer-events: none;
 }
@@ -160,7 +197,7 @@ main {
 }
 
 .avatar-frame::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
@@ -258,47 +295,107 @@ h1 {
   text-decoration-color: var(--accent);
 }
 
-/* ─── Links ─── */
+/* ─── Social icons ─── */
 
-.hero-links {
+.identity-links {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px 20px;
-  margin-top: 28px;
-  font-family: var(--mono);
-  font-size: 12.5px;
-  animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both;
+  gap: 9px;
+  margin-top: 12px;
 }
 
-.hero-links a {
-  position: relative;
-  padding-bottom: 3px;
+.identity-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 27px;
+  height: 27px;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
   color: var(--quiet);
+  background: rgba(255, 255, 255, 0.25);
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.identity-links a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+}
+
+.identity-links svg {
+  width: 13px;
+  height: 13px;
+  fill: currentColor;
+}
+
+/* ─── Writeups ─── */
+
+.writeups {
+  max-width: 620px;
+  margin-top: 34px;
+  animation: fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.55s both;
+}
+
+.writeups h2 {
+  margin: 0 0 12px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid var(--rule);
+  color: var(--quiet);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.writeups ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.writeups a {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 11px 0;
+  border-bottom: 1px dashed var(--rule);
+  color: var(--ink);
+  font-size: 15.5px;
+  line-height: 1.55;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
-.hero-links a::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 1px;
-  background: var(--rule);
-  transform-origin: left;
+.writeups li:last-child a {
+  border-bottom: none;
+}
+
+.writeups a:hover {
+  color: var(--accent);
+}
+
+.writeups .arrow {
+  flex-shrink: 0;
+  color: var(--faint);
+  font-family: var(--mono);
+  font-size: 12px;
   transition:
-    background 0.2s ease,
-    transform 0.25s ease;
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
-.hero-links a:hover {
-  color: var(--ink);
-}
-
-.hero-links a:hover::after {
-  background: var(--accent);
+.writeups a:hover .arrow {
+  color: var(--accent);
+  transform: translateX(2px);
 }
 
 /* ─── Journey ─── */
@@ -506,6 +603,20 @@ h1 {
   }
 
   .bio {
+    font-size: 15px;
+  }
+
+  .identity-links {
+    gap: 8px;
+    margin-top: 11px;
+  }
+
+  .identity-links a {
+    width: 26px;
+    height: 26px;
+  }
+
+  .writeups a {
     font-size: 15px;
   }
 
