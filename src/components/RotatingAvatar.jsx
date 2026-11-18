@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react'
 import pfpMain from '../assets/taruncodes-avatar.webp'
 import pfpSquare from '../assets/taruncodes-square.webp'
 import pfpOld from '../assets/taruncodes-old.webp'
+import pfpNew from '../assets/taruncodesfr.webp'
 
 const FADE = 420
 const ROTATION = [
-  { src: pfpMain, ms: 8000 },
+  { src: pfpNew, ms: 8000 },
   { src: pfpSquare, ms: 3500 },
   { src: pfpOld, ms: 3500 },
+  { src: pfpMain, ms: 3500}
 ]
 
 export default function RotatingAvatar() {
